@@ -10,11 +10,8 @@
     <fragment
         android:id="@+id/fragment"
         android:name="com.example.m8projecteuf1.HeaderFragment"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="93dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
