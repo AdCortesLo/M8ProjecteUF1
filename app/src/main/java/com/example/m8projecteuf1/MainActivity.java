@@ -32,10 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         Realm.init(this);
 
-        SharedPreferences.Editor preferences = getSharedPreferences(sharedPreferencesFile, MODE_PRIVATE).edit();
-        preferences.clear();
-        preferences.commit();
-
         etUser = findViewById(R.id.editTextUsuariLogin);
         etPass = findViewById(R.id.editTextPasswordLogin);
 

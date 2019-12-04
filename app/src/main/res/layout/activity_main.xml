@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context=".MainActivity">
 
     <EditText
@@ -14,6 +15,8 @@
         android:ems="10"
         android:hint="User"
         android:inputType="textPersonName"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="@android:color/background_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,6 +28,8 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="@android:color/background_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,8 +40,10 @@
         android:layout_width="122dp"
         android:layout_height="56dp"
         android:layout_marginTop="14dp"
+        android:background="@color/yellowBackgroundButton"
         android:onClick="onClickLogin"
         android:text="Login"
+        android:textColor="@color/greyBackgroundFragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,10 +53,13 @@
         android:id="@+id/btNewUser"
         android:layout_width="122dp"
         android:layout_height="56dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/yellowBackgroundButton"
         android:onClick="onClickNewUser"
         android:text="New user"
+        android:textColor="@color/greyBackgroundFragment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 </androidx.constraintlayout.widget.ConstraintLayout>
