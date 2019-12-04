@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="You win!"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@android:color/holo_green_dark"
         android:textSize="36sp"
         android:textStyle="bold" />
 </FrameLayout>
