@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="85dp"
-        android:background="@color/yellowBackgroundButton">
+        android:background="@color/yellowBackground2">
 
         <ImageView
             android:id="@+id/imageViewFragment"

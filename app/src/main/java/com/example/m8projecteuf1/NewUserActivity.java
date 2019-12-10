@@ -21,8 +21,7 @@ public class NewUserActivity extends AppCompatActivity {
     Realm realm;
     Spinner spinner;
     public int [] profilePics = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5,
-            R.drawable.pic6, R.drawable.pic7, R.drawable.pic8, R.drawable.pic16, R.drawable.pic9, R.drawable.pic10, R.drawable.pic11, R.drawable.pic12,
-            R.drawable.pic13, R.drawable.pic14, R.drawable.pic15 };
+            R.drawable.pic6, R.drawable.pic7, R.drawable.pic8, R.drawable.pic9, R.drawable.pic10};
     ImageView ivProfilePic;
     EditText etUser;
     EditText etPass;
@@ -41,7 +40,7 @@ public class NewUserActivity extends AppCompatActivity {
         etMail = findViewById(R.id.editTextEmail);
 
         spinner = findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.genres, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.genres, android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
         ivProfilePic =  findViewById(R.id.imageViewProfilePic);

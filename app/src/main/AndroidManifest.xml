@@ -12,15 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".LoseActivity"></activity>
-        <activity android:name=".LoggedUserActivity" />
+        <activity android:name=".LoseActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".LoggedUserActivity" android:screenOrientation="portrait" />
         <activity
             android:name=".AdminActivity"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity" android:screenOrientation="portrait" />
         <activity
             android:name=".NewUserActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity">
+            android:parentActivityName=".MainActivity" android:screenOrientation="portrait" />
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
