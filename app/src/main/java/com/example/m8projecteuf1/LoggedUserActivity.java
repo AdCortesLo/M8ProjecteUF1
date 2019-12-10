@@ -163,14 +163,11 @@ public class LoggedUserActivity extends AppCompatActivity {
         int aux;
         aux = Integer.parseInt(tvCurrentMoney.getText().toString()) - Integer.parseInt(etBet.getText().toString());
         tvCurrentMoney.setText("" + aux);
+        //user.setMoney(aux);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, frLose).commit();
         if (aux <= 0) {
-            Uri uriUrl = Uri.parse("https://www.cofidis.es/es/creditos-prestamos/prestamo-personal.html#");
-            Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-            startActivity(launchBrowser);
-
-            // image Picasso url sobera?
+            startActivity(new Intent(this,LoseActivity.class));
         }
     }
 
