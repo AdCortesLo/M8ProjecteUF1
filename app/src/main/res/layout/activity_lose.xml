@@ -4,6 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context=".LoseActivity">
 
+    <Button
+        android:id="@+id/buttonDemanarCredit"
+        android:layout_width="154dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="232dp"
+        android:background="@color/yellowBackgroundButton"
+        android:onClick="onClickPedirCredito"
+        android:text="Ask for a small loan"
+        android:textColor="@color/greyBackgroundFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCrearNouUsuari"
+        android:layout_width="154dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/yellowBackgroundButton"
+        android:onClick="onClickCrearNuevoUsuario"
+        android:text="Create new user"
+        android:textColor="@color/greyBackgroundFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDemanarCredit" />
+
+    <ImageView
+        android:id="@+id/imageViewBancarrota"
+        android:layout_width="357dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>

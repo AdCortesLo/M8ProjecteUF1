@@ -11,7 +11,7 @@
         android:id="@+id/editTextUsuariLogin"
         android:layout_width="359dp"
         android:layout_height="69dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="272dp"
         android:ems="10"
         android:hint="User"
         android:inputType="textPersonName"
@@ -20,6 +20,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btNewUser"
+        android:layout_width="122dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/yellowBackgroundButton"
+        android:onClick="onClickNewUser"
+        android:text="New user"
+        android:textColor="@color/greyBackgroundFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btLogin" />
+
+    <Button
+        android:id="@+id/btLogin"
+        android:layout_width="122dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/yellowBackgroundButton"
+        android:onClick="onClickLogin"
+        android:text="Login"
+        android:textColor="@color/greyBackgroundFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordLogin" />
 
     <EditText
         android:id="@+id/editTextPasswordLogin"
@@ -31,35 +59,18 @@
         android:textColor="@android:color/background_dark"
         android:textColorHint="@android:color/background_dark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextUsuariLogin" />
 
-    <Button
-        android:id="@+id/btLogin"
-        android:layout_width="122dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="14dp"
-        android:background="@color/yellowBackgroundButton"
-        android:onClick="onClickLogin"
-        android:text="Login"
-        android:textColor="@color/greyBackgroundFragment"
+    <ImageView
+        android:id="@+id/imageViewLogoApp"
+        android:layout_width="333dp"
+        android:layout_height="185dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordLogin" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher"
+        />
 
-    <Button
-        android:id="@+id/btNewUser"
-        android:layout_width="122dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/yellowBackgroundButton"
-        android:onClick="onClickNewUser"
-        android:text="New user"
-        android:textColor="@color/greyBackgroundFragment"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 </androidx.constraintlayout.widget.ConstraintLayout>

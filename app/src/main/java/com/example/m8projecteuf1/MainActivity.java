@@ -15,7 +15,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -24,11 +27,15 @@ public class MainActivity extends AppCompatActivity {
 
     EditText etUser;
     EditText etPass;
+    ImageView iv;
     public static String sharedPreferencesFile = "SharedPreferencesProjecte";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        iv = findViewById(R.id.imageViewLogoApp);
+        Glide.with(this).load("https://png2.cleanpng.com/sh/5ec0ad4dac6e5e61dc8b86836f3e0a9f/L0KzQYm3VsI6N5R3eZH0aYP2gLBuTgJwa5x1eeJucoPmecT6jCJ0NaR5fdd2aYSwfLFuj71zd5RwReJqcHX1PcTqigN0d6N4RadrM0a0c4eCgBE5O2E2RqcEMUG3QoK9UcU0OGM8SqoCM0i1SYa1kP5o/kisspng-rockpaperscissors-steemit-logo-rock-paper-scissors-5b361c69ca8301.5911421615302728738295.png").into(iv);
 
         Realm.init(this);
 

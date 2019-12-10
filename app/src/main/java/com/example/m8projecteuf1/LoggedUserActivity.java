@@ -106,7 +106,6 @@ public class LoggedUserActivity extends AppCompatActivity {
     }
 
     private void checkWinner() {
-
         int aux = -1;
 
         int apuesta = sp.getSelectedItemPosition();

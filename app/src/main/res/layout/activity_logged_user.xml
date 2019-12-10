@@ -13,8 +13,8 @@
         android:name="com.example.m8projecteuf1.HeaderFragment"
         android:layout_width="match_parent"
         android:layout_height="94dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-1dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageViewDado"
