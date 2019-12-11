@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="85dp"
-        android:background="@color/yellowBackground2">
+        android:background="@color/colorPrimary">
 
         <ImageView
             android:id="@+id/imageViewFragment"
@@ -29,7 +29,7 @@
             android:layout_marginTop="21dp"
             android:gravity="center_vertical"
             android:text="User"
-            android:textColor="@color/greyBackgroundFragment"
+            android:textColor="@android:color/background_dark"
             android:textSize="30sp"
             app:layout_constraintStart_toEndOf="@+id/imageViewFragment"
             app:layout_constraintTop_toTopOf="parent" />

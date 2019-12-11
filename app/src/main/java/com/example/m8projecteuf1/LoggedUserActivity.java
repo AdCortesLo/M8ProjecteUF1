@@ -10,6 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -29,15 +30,20 @@ public class LoggedUserActivity extends AppCompatActivity {
     public int[] profilePics = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5,
             R.drawable.pic6, R.drawable.pic7, R.drawable.pic8, R.drawable.pic9, R.drawable.pic10};
 
+    ImageButton ibRock;
+    ImageButton ibPaper;
+    ImageButton ibScissors;
+
     FrameLayout fl;
     TextView tvCurrentMoney;
     EditText etBet;
     ImageView imageViewRps;
-    Spinner sp;
+    //Spinner sp;
     User user;
     Random r = new Random();
     int[] rps = {R.drawable.rock, R.drawable.paper, R.drawable.scissors};
     int resultado = -1;
+    int apuesta;
 
     Fragment frWin = new WinFragment();
     Fragment frLose = new LoseFragment();
@@ -47,13 +53,17 @@ public class LoggedUserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logged_user);
+        setContentView(R.layout.activity_logged_user_buttons);
+
+        ibRock = findViewById(R.id.imageButtonRock);
+        ibPaper = findViewById(R.id.imageButtonPaper);
+        ibScissors = findViewById(R.id.imageButtonScissors);
 
         tvCurrentMoney = findViewById(R.id.textViewCurrentMoney);
         etBet = findViewById(R.id.editTextBet);
         imageViewRps = findViewById(R.id.imageViewDado);
         fl = findViewById(R.id.frameLayout);
-        sp = findViewById(R.id.spinnerApuesta);
+        //sp = findViewById(R.id.spinnerApuesta);
 
         realm = Realm.getDefaultInstance();
         user = realm.where(User.class).equalTo("name", getIntent().getStringExtra("user")).findFirst();
@@ -67,8 +77,11 @@ public class LoggedUserActivity extends AppCompatActivity {
     }
 
     public void onBetClick(View view) {
-        Log.i("zzz", tvCurrentMoney.getText().toString() + " - " + etBet.getText().toString());
+
         if (Integer.parseInt(tvCurrentMoney.getText().toString()) >= Integer.parseInt(etBet.getText().toString())) {
+
+            getApuesta(view);
+            setButtonsVisibilityGone();
 
             Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
 
@@ -89,6 +102,7 @@ public class LoggedUserActivity extends AppCompatActivity {
                     imageViewRps.startAnimation(scale);
 
                     checkWinner();
+                    setButtonsVisibilityVisible();
                 }
 
                 @Override
@@ -99,15 +113,40 @@ public class LoggedUserActivity extends AppCompatActivity {
 
             imageViewRps.startAnimation(shake);
 
+
         } else {
             Toast.makeText(this, "You don't have enough.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void checkWinner() {
-        int aux = -1;
+    private void getApuesta(View view) {
+        if (ibRock.getId() == view.getId()){
+            apuesta = 0;
+        }
+        else if (ibPaper.getId() == view.getId()) {
+            apuesta = 1;
+        }
+        else if (ibScissors.getId() == view.getId()) {
+            apuesta = 2;
+        }
 
-        int apuesta = sp.getSelectedItemPosition();
+    }
+
+    private void setButtonsVisibilityGone() {
+        ibRock.setVisibility(View.GONE);
+        ibPaper.setVisibility(View.GONE);
+        ibScissors.setVisibility(View.GONE);
+        fl.setVisibility(View.GONE);
+    }
+
+    private void setButtonsVisibilityVisible() {
+        ibRock.setVisibility(View.VISIBLE);
+        ibPaper.setVisibility(View.VISIBLE);
+        ibScissors.setVisibility(View.VISIBLE);
+        fl.setVisibility(View.VISIBLE);
+    }
+
+    private void checkWinner() {
         switch (apuesta) {
             case 0:
                 switch (resultado){
@@ -118,7 +157,7 @@ public class LoggedUserActivity extends AppCompatActivity {
                         Loses();
                         break;
                     case 0:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, frDraw).commit();
+                        getSupportFragmentManager().beginTransaction().replace(fl.getId(), frDraw).commit();
                         break;
                 }
                 break;
@@ -132,7 +171,7 @@ public class LoggedUserActivity extends AppCompatActivity {
                         Loses();
                         break;
                     case 1:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, frDraw).commit();
+                        getSupportFragmentManager().beginTransaction().replace(fl.getId(), frDraw).commit();
                         break;
                 }
                 break;
@@ -145,28 +184,29 @@ public class LoggedUserActivity extends AppCompatActivity {
                     case 0:
                         Loses();
                     case 2:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, frDraw).commit();
+                        getSupportFragmentManager().beginTransaction().replace(fl.getId(), frDraw).commit();
                         break;
                 }
                 break;
         }
-
-        //realm.beginTransaction();
-        //user.setMoney(Integer.parseInt(tvCurrentMoney.getText().toString()));
-        //realm.copyToRealmOrUpdate(user);
-        //realm.commitTransaction();
     }
 
     private void Loses() {
         int aux;
         aux = Integer.parseInt(tvCurrentMoney.getText().toString()) - Integer.parseInt(etBet.getText().toString());
         tvCurrentMoney.setText("" + aux);
-        //user.setMoney(aux);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, frLose).commit();
         if (aux <= 0) {
+            realm.beginTransaction();
+            user.setMoney(aux);
+            realm.commitTransaction();
             startActivity(new Intent(this,LoseActivity.class));
         }
+
+        realm.beginTransaction();
+        user.setMoney(aux);
+        realm.commitTransaction();
     }
 
     private void Wins() {
@@ -175,6 +215,10 @@ public class LoggedUserActivity extends AppCompatActivity {
         tvCurrentMoney.setText("" + aux);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, frWin).commit();
+
+        realm.beginTransaction();
+        user.setMoney(aux);
+        realm.commitTransaction();
     }
 
     public void onAllinClick(View view) {

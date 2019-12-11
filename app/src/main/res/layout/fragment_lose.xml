@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/textViewLose"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="You lose!"
         android:textColor="@android:color/holo_red_dark"
