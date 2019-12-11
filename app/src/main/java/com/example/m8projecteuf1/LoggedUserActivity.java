@@ -38,7 +38,6 @@ public class LoggedUserActivity extends AppCompatActivity {
     TextView tvCurrentMoney;
     EditText etBet;
     ImageView imageViewRps;
-    //Spinner sp;
     User user;
     Random r = new Random();
     int[] rps = {R.drawable.rock, R.drawable.paper, R.drawable.scissors};
@@ -63,7 +62,6 @@ public class LoggedUserActivity extends AppCompatActivity {
         etBet = findViewById(R.id.editTextBet);
         imageViewRps = findViewById(R.id.imageViewDado);
         fl = findViewById(R.id.frameLayout);
-        //sp = findViewById(R.id.spinnerApuesta);
 
         realm = Realm.getDefaultInstance();
         user = realm.where(User.class).equalTo("name", getIntent().getStringExtra("user")).findFirst();
